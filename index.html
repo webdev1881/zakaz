@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+ </head>
+  <body>
+	<style>
+	.glyphicon-cog{
+		margin: 14px 0px 0px 60px;
+		color: white;
+		font-size: 20px;
+	}
+	.glyphicon-plus{
+		margin-right: 5px;
+	}
+	.table-hover thead {
+	  width: 100%;
+	}
+	.table-hover tbody {
+	  height: 350px;
+	  overflow-y: auto;
+	  width: 100%;
+	}
+	.table-hover thead, .table-hover tbody, .table-hover tr {
+	  display: block;
+	}
+	.table-hover tbody td, .table-hover thead > tr> th {
+	  float: left;
+	  border-bottom-width: 0;
+	};
+	
+	.table-hover tbody td, .table-hover thead > tr> th {
+		float: left;
+		border-bottom-width: 0;
+	};	
+	.foot {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 150px;
+		background-color: red<!-- #f5f5f5 -->;
+	};
+	.table>tbody>tr>td{
+		padding-top: 3px;
+		padding-bottom: 3px;
+	};	
+	.tbody:hover{
+		background-color: red;
+	}	
+	.edt {
+		background-color:#dcffdd;
+		width: 55px;
+		margin-right: 5px;
+		padding:0;
+	}
+	.del {
+		background-color:#ffdcdc;
+		padding:0;
+		width: 55px;
+	}	
+	#count, #qty {
+		margin-left: 5px;
+	}
+	#qty {
+		font-weight:bold;
+	};
+	* { white-space: pre}
+	</style>
+
+<div class="navbar navbar-default" style="margin-bottom:0px; background-color: #364ada; border-radius: 0px;">
+	<a href="#" id="test"><span class="glyphicon glyphicon-cog"></span> Load test LocalStorage</a>
+</div>
+<div class="navbar navbar-default" style="min-height: 20px"></div>
+<div class="container">
+<div class="row">
+  <div class="col-md-10" ><h3 style="margin-top: 5px;">Заказы</h3></div>
+  <div class="col-md-2">
+	<button id="openModal" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></span>Добавить</button>
+  </div>
+</div>
+</div>
+	<div>
+	<table class="table  table-hover " id="tbl">
+	  <thead>  <!-- Head fixed css-->
+		<tr>		  
+		  <th class="col-xs-1">ID</th><th class="col-xs-3">Имя</th><th class="col-xs-4">Комментарий</th><th class="col-xs-2">Дата</th><th class="col-xs-2">. . .</th>
+		</tr>
+	  </thead>
+	  <tbody id="tbody">		
+	  </tbody>
+	</table>
+  </div>
+<div id="count"><p>Количество:<span id="qty">0</span></p></div>        
+<div class="foot">
+     <div class="container">
+        <p class="text-muted"></p>
+     </div>
+</div>
+  <!-- Modal -->
+<div class="container">
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content" style="padding: 20px">	  
+			<h3>Заполните поля</h3>
+				  <form>
+					<div class="form-group">
+					  <label>Имя</label>
+					  <input id="nam" type="text" class="form-control" placeholder="Введите имя" autofocus >
+					</div>
+					<div class="form-group">
+					  <label for="pwd">Комментарий</label>
+					  <input id="komm" type="text" class="form-control" placeholder="Веедите комментарий" value="">
+					</div>
+					<button id="add" type="button" class="btn btn-default"  data-dismiss="modal" value="">Добавить</button>
+					<button id="save" style="display: none" type="button" class="btn btn-default" data-dismiss="modal" >Сохранить</button>
+				  </form>
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="js/testJSON.js"></script>
+    <script src="js/main.js"></script>	
+    <script src="js/jquery.min.js"></script><script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
