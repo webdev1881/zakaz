@@ -1,128 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  	<title></title>
     <meta charset="utf-8">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  </head>
   <body>
-	<style>
-	.glyphicon-cog{
-		margin: 14px 0px 0px 60px;
-		color: white;
-		font-size: 20px;
-	}
-	.glyphicon-plus{
-		margin-right: 5px;
-	}
-	.table-hover thead {
-	  width: 100%;
-	}
-	.table-hover tbody {
-	  height: 350px;
-	  overflow-y: auto;
-	  width: 100%;
-	}
-	.table-hover thead, .table-hover tbody, .table-hover tr {
-	  display: block;
-	}
-	.table-hover tbody td, .table-hover thead > tr> th {
-	  float: left;
-	  border-bottom-width: 0;
-	};
-	
-	.table-hover tbody td, .table-hover thead > tr> th {
-		float: left;
-		border-bottom-width: 0;
-	};	
-	.foot {
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		height: 150px;
-		background-color: red<!-- #f5f5f5 -->;
-	};
-	.table>tbody>tr>td{
-		padding-top: 3px;
-		padding-bottom: 3px;
-	};	
-	.tbody:hover{
-		background-color: red;
-	}	
-	.edt {
-		background-color:#dcffdd;
-		width: 55px;
-		margin-right: 5px;
-		padding:0;
-	}
-	.del {
-		background-color:#ffdcdc;
-		padding:0;
-		width: 55px;
-	}	
-	#count, #qty {
-		margin-left: 5px;
-	}
-	#qty {
-		font-weight:bold;
-	};
-	* { white-space: pre}
-	</style>
 
-<div class="navbar navbar-default" style="margin-bottom:0px; background-color: #364ada; border-radius: 0px;">
-	<a href="#" id="test"><span class="glyphicon glyphicon-cog"></span> Load test LocalStorage</a>
-</div>
-<div class="navbar navbar-default" style="min-height: 20px"></div>
+
+
 <div class="container">
-<div class="row">
-  <div class="col-md-10" ><h3 style="margin-top: 5px;">Заказы</h3></div>
-  <div class="col-md-2">
-	<button id="openModal" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span></span>Добавить</button>
+
+	<nav class=" " >
+
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Главная</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Контакты МИС</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Ergo</a>
   </div>
-</div>
-</div>
-	<div>
-	<table class="table  table-hover " id="tbl">
-	  <thead>  <!-- Head fixed css-->
-		<tr>		  
-		  <th class="col-xs-1">ID</th><th class="col-xs-3">Имя</th><th class="col-xs-4">Комментарий</th><th class="col-xs-2">Дата</th><th class="col-xs-2">. . .</th>
-		</tr>
-	  </thead>
-	  <tbody id="tbody">		
-	  </tbody>
-	</table>
-  </div>
-<div id="count"><p>Количество:<span id="qty">0</span></p></div>        
-<div class="foot">
-     <div class="container">
-        <p class="text-muted"></p>
-     </div>
-</div>
+
+	</nav>
+
+	<div class="tab-content" id="nav-tabContent">
+
+	  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">		
+
+			<div class="row">
+			  <div class="col-md-10" ><h3 style="margin-top: 5px;">Задачи</h3></div>
+			  <div class="col-md-2">
+				<button id="openModal" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span>Добавить</button>
+			  </div>
+			</div>  	
+		  <table class="table" id="tbl">
+		  <thead>  <!-- Head fixed css-->
+				<tr>		  
+				  <th scope="col">+</th>
+				  <th scope="col">Задача</th>
+				  <th scope="col">Период</th>
+				  <th scope="col">Комментарий</th>
+				  <th scope="col">. . .</th>
+				</tr>
+			  </thead>
+			  <tbody id="tbody">		
+			  </tbody>
+			</table>
+
+			<div id="count"><p>Количество:<span id="qty">0</span></p></div>        
+		
+	  </div>
+
+
+
+	  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">456</div>
+	  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">789</div>
+
+
+	</div>
+
+
+
+
+</div> <!-- Container -->
+
+
   <!-- Modal -->
 <div class="container">
   <div class="modal" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content" style="padding: 20px">	  
-			<h3>Заполните поля</h3>
+			<h3>Изменить</h3>
 				  <form>
 					<div class="form-group">
-					  <label>Имя</label>
-					  <input id="nam" type="text" class="form-control" placeholder="Введите имя" autofocus >
+					  <label>Задача</label>
+					  <input id="nam" type="text" class="form-control" placeholder="Задача" autofocus >
 					</div>
+
+<!-- 					<div class="form-group">
+					  <label for="pwd">Период</label>
+					  <input id="per" type="text" class="form-control" placeholder="Период" value="">
+					</div> -->
+					<label>Период</label>
+					<select id="per" class="custom-select custom-select-lg sm-3" style="margin-bottom:15px; height: 40px; padding: 0 10px;" >
+					  <option selected></option>
+					  <option value="Понедельник">Понедельник</option>
+					  <option value="Вторник">Вторник</option>
+					  <option value="Среда">Среда</option>
+					  <option value="Четверг">Четверг</option>
+					  <option value="Пятница">Пятница</option>
+					  <option disabled="disabled">─────────────</option>
+					  <option value="Месяц">Месяц</option>
+					  <option value="Пол-месяца">Пол-месяца</option>
+					</select>
+
 					<div class="form-group">
 					  <label for="pwd">Комментарий</label>
-					  <input id="komm" type="text" class="form-control" placeholder="Веедите комментарий" value="">
+					  <input id="komm" type="text" class="form-control" placeholder="Мой коммент" value="">
 					</div>
-					<button id="add" type="button" class="btn btn-default"  data-dismiss="modal" value="">Добавить</button>
-					<button id="save" style="display: none" type="button" class="btn btn-default" data-dismiss="modal" >Сохранить</button>
+					<button id="add" type="button" class="btn btn-outline-primary"  data-dismiss="modal" value="">Добавить</button>
+					<button id="save" style="display: none" type="button" class="btn btn-outline-primary" data-dismiss="modal" >Сохранить</button>
 				  </form>
       </div>
     </div>
   </div>
-</div>
+</div> <!-- Modal -->
+
+
+
+
+
     <script src="js/testJSON.js"></script>
-    <script src="js/main.js"></script>	
-    <script src="js/jquery.min.js"></script><script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   </body>
 </html>
